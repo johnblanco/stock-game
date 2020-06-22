@@ -1,0 +1,5 @@
+.idea/
+secrets.txt
+*.csv
+database.db
+__pycache__/
