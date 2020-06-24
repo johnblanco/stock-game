@@ -15,5 +15,9 @@ db = dataset.connect('sqlite:///{}/database.db'.format(PATH))
 
 @app.route('/', methods=['GET'])
 def main():
-    r = db['foo'].find_one()
-    return render_template("main.html", bar=r['bar'])
+    return render_template("game.html")
+
+
+@app.route('/ranking', methods=['GET'])
+def ranking():
+    return render_template("ranking.html")
