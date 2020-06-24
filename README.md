@@ -1,7 +1,7 @@
 # stock-game
 
-El codigo detras de este [juego](http://johnblanco.pythonanywhere.com/)
+El código detras de este [juego](http://johnblanco.pythonanywhere.com/)
 
-Se trata de flask en que podes jugar a que sos un inversor y comprar/vender diferentes acciones con los datos historicos de acciones reales. 
+Se trata de una webapp en la que jugas a que sos un inversor y compras/vendes diferentes acciones reales.
 
-Podés hacer que el tiempo avance rápido y comprobar que retorno te darian tus diferentes estrategias.
+Podés hacer que el tiempo avance rápido y probar diferentes estrategias para trepar hasta la cima del ranking.
