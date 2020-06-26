@@ -27,3 +27,19 @@ code {
 .login-container{
     margin-top: 50px;
 }
+
+.green{
+    color: green;
+}
+
+.red{
+    color: red;
+}
+
+.extra-padding{
+    padding-top: 20px;
+}
+
+.bottom-padding{
+    padding-bottom: 50px;
+}

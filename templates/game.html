@@ -4,85 +4,96 @@
 <div class="container">
     <h2>Dia 1: 1/7/2017</h2>
 
-    <h3>Mi cuenta</h3>
-    <table class="table table-striped">
-        <thead>
-        <tr>
-            <th scope="col">Accion</th>
-            <th scope="col">Costo promedio</th>
-            <th scope="col">Cantidad</th>
-            <th scope="col">Precio actual</th>
-            <th scope="col">Valor mercado</th>
-            <th scope="col">Gan. pendientes</th>
-            <th scope="col">Gan. concretadas</th>
-            <th scope="col"></th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>SPY</td>
-            <td>100</td>
-            <td>4</td>
-            <td>130 (+2.5)</td>
-            <td>2.300</td>
-            <td>-230</td>
-            <td>750</td>
-            <td>
-                <button type="button" class="btn btn-primary btn-sm">comprar</button>
-                <button type="button" class="btn btn-primary btn-sm">vender</button>
-            </td>
-        </tr>
-        <tr>
-            <td>TECL</td>
-            <td>100</td>
-            <td>4</td>
-            <td>130 (+2.5)</td>
-            <td>2.300</td>
-            <td>-230</td>
-            <td>750</td>
-            <td>
-                <button type="button" class="btn btn-primary btn-sm">comprar</button>
-                <button type="button" class="btn btn-primary btn-sm">vender</button>
-            </td>
-        </tr>
+    <div class="extra-padding">
+        <h4>Mi cuenta</h4>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">Accion</th>
+                <th scope="col">Costo promedio</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Precio actual</th>
+                <th scope="col">Valor mercado</th>
+                <th scope="col">Gan. pendientes</th>
+                <th scope="col">Gan. concretadas</th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>SPY</td>
+                <td>100</td>
+                <td>4</td>
+                <td class="green">130 (+2.5)</td>
+                <td>2.300</td>
+                <td class="red">-230</td>
+                <td class="green">750</td>
+                <td>
+                    <button type="button" class="btn btn-primary btn-sm">comprar</button>
+                    <button type="button" class="btn btn-primary btn-sm">vender</button>
+                </td>
+            </tr>
+            <tr>
+                <td>TECL</td>
+                <td>100</td>
+                <td>4</td>
+                <td>130 (+2.5)</td>
+                <td>2.300</td>
+                <td>-230</td>
+                <td>750</td>
+                <td>
+                    <button type="button" class="btn btn-primary btn-sm">comprar</button>
+                    <button type="button" class="btn btn-primary btn-sm">vender</button>
+                </td>
+            </tr>
 
-        </tbody>
-    </table>
+            </tbody>
+        </table>
 
+        <p>
+            Efectivo: 11.000<br/>
+            Comisiones: <span class="red">233</span>
+            Total: 25.000
+        </p>
 
-    <h3>Precios de hoy</h3>
-
-    <div class="row">
-        <div class="col">
-            <strong>SPY</strong>
-            {{ my_chart() }}
-        </div>
-        <div class="col">
-            <strong>MSFT</strong>
-            <img style="display:block" src="{{ url_for('static', filename='g.png') }}"/>
-        </div>
-        <div class="col">
-            <strong>TECL</strong>
-            <img style="display:block" src="{{ url_for('static', filename='g.png') }}"/>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col">
-            <strong>AAPL</strong>
-            <img style="display:block" src="{{ url_for('static', filename='g.png') }}"/>
-        </div>
-        <div class="col">
-            <strong>GOOGL</strong>
-            <img style="display:block" src="{{ url_for('static', filename='g.png') }}"/>
-        </div>
-        <div class="col">
-            <strong>FANG</strong>
-            <img style="display:block" src="{{ url_for('static', filename='g.png') }}"/>
-        </div>
+        <button type="button" class="btn btn-primary">Avanzar 1 dia</button>
+        <button type="button" class="btn btn-warning">Avanzar 10 dias</button>
     </div>
 
 
+    <div class="extra-padding bottom-padding">
+        <h4>Precios de hoy</h4>
+
+        <div class="row">
+            <div class="col">
+                <strong>SPY</strong>
+                {{ my_chart() }}
+            </div>
+            <div class="col">
+                <strong>MSFT</strong>
+                <img style="display:block" src="{{ url_for('static', filename='g.png') }}"/>
+            </div>
+            <div class="col">
+                <strong>TECL</strong>
+                <img style="display:block" src="{{ url_for('static', filename='g.png') }}"/>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <strong>AAPL</strong>
+                <img style="display:block" src="{{ url_for('static', filename='g.png') }}"/>
+            </div>
+            <div class="col">
+                <strong>GOOGL</strong>
+                <img style="display:block" src="{{ url_for('static', filename='g.png') }}"/>
+            </div>
+            <div class="col">
+                <strong>FANG</strong>
+                <img style="display:block" src="{{ url_for('static', filename='g.png') }}"/>
+            </div>
+        </div>
+    </div>
 
 
 </div>

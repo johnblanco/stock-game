@@ -18,7 +18,7 @@ db = dataset.connect('sqlite:///{}/database.db'.format(PATH))
 
 @app.route('/', methods=['GET'])
 def main():
-    my_chart = Chart("LineChart", "my_chart")#https://github.com/albinmedoc/flask-charts
+    my_chart = Chart("LineChart", "my_chart")  # https://github.com/albinmedoc/flask-charts
     my_chart.data.add_column("number", "Dia")
     my_chart.data.add_column("number", "Precio")
     my_chart.data.add_row([0, 100])
@@ -28,6 +28,16 @@ def main():
     my_chart.data.add_row([4, 118])
 
     return render_template("game.html", my_chart=my_chart)
+
+
+@app.route('/comprar', methods=['GET'])
+def buy():
+    return render_template("buy.html")
+
+
+@app.route('/vender', methods=['GET'])
+def sell():
+    return render_template("sell.html")
 
 
 @app.route('/ranking', methods=['GET'])
