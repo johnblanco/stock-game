@@ -18,12 +18,14 @@ db = dataset.connect('sqlite:///{}/database.db'.format(PATH))
 
 @app.route('/', methods=['GET'])
 def main():
-    my_chart = Chart("PieChart", "my_chart")#https://github.com/albinmedoc/flask-charts
-    my_chart.data.add_column("string", "Person")
-    my_chart.data.add_column("number", "Count")
-    my_chart.data.add_row(["Albin", 3])
-    my_chart.data.add_row(["Robert", 4])
-    my_chart.data.add_row(["Daniel", 2.5])
+    my_chart = Chart("LineChart", "my_chart")#https://github.com/albinmedoc/flask-charts
+    my_chart.data.add_column("number", "Dia")
+    my_chart.data.add_column("number", "Precio")
+    my_chart.data.add_row([0, 100])
+    my_chart.data.add_row([1, 110])
+    my_chart.data.add_row([2, 105])
+    my_chart.data.add_row([3, 115])
+    my_chart.data.add_row([4, 118])
 
     return render_template("game.html", my_chart=my_chart)
 
