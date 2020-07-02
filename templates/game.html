@@ -3,6 +3,9 @@
 {% block content %}
 <div class="container">
     <h2>Dia 1: 1/7/2017</h2>
+    <p>
+        <label>Faltan 127 dias para terminar el juego</label>
+    </p>
 
     <div class="extra-padding">
         <h4>Mi cuenta</h4>
@@ -50,19 +53,43 @@
             </tbody>
         </table>
 
-        <p>
-            Efectivo: 11.000<br/>
-            Comisiones: <span class="red">233</span>
-            Total: 25.000
-        </p>
+        <div class="row">
+            <div class="col">
+                <table class="table table-sm">
+                    <tbody>
+                    <tr>
+                        <td>Valor acciones</td>
+                        <td><strong class="green">8.000</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Efectivo</td>
+                        <td><strong class="green">11.000</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Comisiones</td>
+                        <td><strong class="red">-1000</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Total</strong></td>
+                        <td><strong class="green">18.000</strong></td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="col"></div>
+
+        </div>
 
         <button type="button" class="btn btn-primary">Avanzar 1 dia</button>
         <button type="button" class="btn btn-warning">Avanzar 10 dias</button>
+
+
     </div>
 
 
     <div class="extra-padding bottom-padding">
-        <h4>Precios de hoy</h4>
+        <h4>Precios históricos</h4>
 
         <div class="row">
             <div class="col">
@@ -71,7 +98,7 @@
             </div>
             <div class="col">
                 <strong>MSFT</strong>
-                <img style="display:block" src="{{ url_for('static', filename='g.png') }}"/>
+                {{ my_chart2() }}
             </div>
             <div class="col">
                 <strong>TECL</strong>

@@ -2,52 +2,36 @@
 
 {% block content %}
 <div class="container">
+    {% from "_formhelpers.html" import render_field %}
     <div>
         <h1>Bienvenido</h1>
         <p>Investor Sim es un juego en el que podrás
-            experimentar como es operar en la bolsa. Comenzas con <strong>U$S 20.000</strong> el 1 de junio de 2017 y
-            vas a poder comprar entre 8 acciones diferentes
-            que están disponibles con los precios históricos reales. Para hacerlo divertido vas a poder saltear los dias
-            y las semanas para ver rapidamente
-            como tu capital crece (o no).</p>
+            experimentar como es operar en la bolsa.
+            Comenzas con <strong>U$S 20.000</strong> y tenés 3 años para comprar
+            y vender diferentes acciones. </p>
+        <p>Vas a poder saltear los dias
+            y las semanas para ver rápidamente
+            como tu capital ficticio crece (o no).</p>
     </div>
     <div class="row login-container">
         <div class="col login bordered">
             <h3>Iniciar sesión</h3>
-            <form>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Usuario</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                           placeholder="Ingresar usuario">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Contraseña</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1"
-                           placeholder="Ingresar contraseña">
-                </div>
+            <form method="post" action="/login">
+                {{ render_field(login_form.username) }}
+                {{ render_field(login_form.password) }}
+
                 <button type="submit" class="btn btn-primary">Iniciar sesión</button>
             </form>
         </div>
         <div class="col login">
             <h3>Registrarme</h3>
-            <form>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Usuario</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                           placeholder="Ingresar usuario">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Contraseña</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1"
-                           placeholder="Ingresar contraseña">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Repetir contraseña</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1"
-                           placeholder="Repetir contraseña">
-                </div>
+            <form method="post" action="/register">
+                {{ render_field(register_form.username) }}
+                {{ render_field(register_form.password) }}
+                {{ render_field(register_form.repeat_password) }}
                 <button type="submit" class="btn btn-primary">Registrarme</button>
             </form>
+
         </div>
     </div>
 

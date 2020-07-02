@@ -21,21 +21,23 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/">Inicio <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/ranking">Rankings</a>
                 </li>
+                {% if current_user.is_authenticated %}
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">
-                        Mi cuenta (juan)
+                        Mi cuenta ({{ current_user.id }})
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="#">Reiniciar juego</a>
-                        <a class="dropdown-item" href="#">Cerrar sesion</a>
+                        <a class="dropdown-item" href="/logout">Cerrar sesion</a>
                     </div>
                 </li>
+                {% endif %}
             </ul>
         </div>
 
