@@ -21,6 +21,13 @@
                 {{ render_field(login_form.password) }}
 
                 <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+
+                {% if "wrong_password" in get_flashed_messages() %}
+                <div class="alert alert-danger extra-margin" role="alert">
+                    Usuario y/o contraseña incorrectos
+                </div>
+                {% endif %}
+
             </form>
         </div>
         <div class="col login">
@@ -30,6 +37,18 @@
                 {{ render_field(register_form.password) }}
                 {{ render_field(register_form.repeat_password) }}
                 <button type="submit" class="btn btn-primary">Registrarme</button>
+
+                {% if "username_not_available" in get_flashed_messages() %}
+                <div class="alert alert-danger extra-margin" role="alert">
+                    El usuario no está disponible
+                </div>
+                {% endif %}
+
+                {% if "password_error" in get_flashed_messages() %}
+                <div class="alert alert-danger extra-margin" role="alert">
+                    Las contraseñas deben coincidir
+                </div>
+                {% endif %}
             </form>
 
         </div>

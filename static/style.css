@@ -40,6 +40,10 @@ code {
     padding-top: 20px;
 }
 
+.extra-margin{
+    margin-top: 20px;
+}
+
 .bottom-padding{
     padding-bottom: 50px;
 }

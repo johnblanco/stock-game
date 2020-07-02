@@ -36,19 +36,39 @@ def load_user(user_id):
 def register():
     register_form = RegisterForm(request.form)
     if register_form.validate():
-        login_user(User(register_form.username.data))
-        return redirect("/")
+        if username_available(register_form.username.data):
+            login_user(User(register_form.username.data))
+            return redirect("/")
+        else:
+            flash("username_not_available")
+            return redirect("/login")
+    else:
+        flash("password_error")
+        return redirect("/login")
 
-    return redirect("/login")
+
+def username_available(username):
+    return username != 'jp' #TODO
+
+
+def valid_password(form):
+    if form.username.data == 'jp' and form.password.data == '1234': #TODO
+        return True
+    else:
+        return False
 
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     login_form = LoginForm(request.form)
     if request.method == 'POST' and login_form.validate():
-        #TODO si no coinciden las contra, mostrar en pantalla
-        login_user(User(login_form.username.data))
-        return redirect("/")
+        if valid_password(login_form):
+            login_user(User(login_form.username.data))
+            return redirect("/")
+        else:
+            flash("wrong_password")
+            return redirect("/login")
+
     return render_template('login.html', login_form=login_form, register_form=RegisterForm())
 
 
