@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simulador bolsa</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body class="d-flex flex-column h-100">
+<main class="flex-shrink-0">
+    <div class="container" id="container">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-success" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        {% block body %}{% endblock %}
+    </div>
+
+</main>
+<footer id="#footer" class="text-center text-lg-start bg-body-tertiary text-muted">
+  <!-- Copyright -->
+  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+    <a class="text-reset fw-bold" href="https://twitter.com/johnblancott">Twitter</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+</body>
+</html>
