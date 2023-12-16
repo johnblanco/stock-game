@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+{% block body %}
+<div id="reset">
+    <a href="/reset_game" type="button" class="btn btn-danger btn-sm">Reiniciar</a>
+</div>
+
+{% if game_state['month'] == 11 %}
+<div id="game_over" class="alert alert-primary" role="alert">
+    Juego terminado!
+</div>
+{% endif %}
+
+<p><strong>Mes: {{game_state['month']}}</strong></p>
+<p>Precios</p>
+<ul>
+    <li>SPY: $ {{spy_price}}</li>
+    <li>TECL: $ {{tecl_price}}</li>
+</ul>
+
+<table class="table table-striped" id="summary">
+    <thead>
+    <tr>
+        <th scope="col">Jugador</th>
+        <th scope="col">TECL</th>
+        <th scope="col">SPY</th>
+        <th scope="col">Efectivo</th>
+        <th scope="col">Posición global</th>
+        <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for i in range(2) %}
+
+    <tr>
+        <td>Jugador {{i+1}}</td>
+        {% set player = game_state['players'][i] %}
+        {% if player['tecl'] > 0 %}
+            <td>{{player['tecl']}} a $ {{player['tecl_price']}}</td>
+        {% else %}
+            <td>{{player['tecl']}}</td>
+        {% endif %}
+
+        {% if player['spy'] > 0 %}
+            <td>{{player['spy']}} a $ {{player['spy_price']}}</td>
+        {% else %}
+            <td>{{player['spy']}}</td>
+        {% endif %}
+        <td>$ {{player['cash']}}</td>
+        <td><strong>$ {{player['profit']}}</strong></td>
+        <td>
+            {% for action in player['available_actions'] %}
+                <form style="display: inline-block" method="post" action="/selection">
+                    <button type="submit" class="btn btn-primary btn-sm">{{action}}</button>
+                    <input type="hidden" name="selection" value="{{action}}">
+                    <input type="hidden" name="player" value="{{i}}">
+                </form>
+            {% endfor %}
+
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+
+{% if game_state['month'] < 11 %}
+    {% if game_state['players'][0]['selected_action'] %}
+        <p>Jugador 1 eligió: {{game_state['players'][0]['selected_action']}}</p>
+    {% endif %}
+    {% if game_state['players'][1]['selected_action'] %}
+        <p>Jugador 2 eligió: {{game_state['players'][1]['selected_action']}}</p>
+    {% endif %}
+    <form method="post" action="/next_month">
+        <button type="submit" class="btn btn-primary">Siguiente mes -></button>
+    </form>
+{% endif %}
+
+
+{% endblock %}
