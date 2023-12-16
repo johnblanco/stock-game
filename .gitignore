@@ -1,6 +1,0 @@
-.idea/
-secrets.txt
-*.csv
-database.db
-__pycache__/
-*.DS_Store
